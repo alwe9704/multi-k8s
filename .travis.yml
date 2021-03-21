@@ -15,7 +15,7 @@ before_install:
   - gcloud config set project heroic-arbor-308311
   - gcloud config set compute/zone europe-north1-a
   - gcloud container clusters get-credentials multi-cluster
-  - echo $"DOCKER_PASSWORD" | docker login -u $"DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t alwe9704/react-test -f ./client/Dockerfile.dev ./client
 
 script:
