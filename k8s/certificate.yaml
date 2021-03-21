@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1
+kind: Certificate
+metadata:
+  name: k8s.westman.tech
+spec:
+  secretName: k8s-westman-tech
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: k8s.westman.tech
+  dnsNames:
+    - k8s.westman.tech
+    - www.k8s.westman.tech
+  acme:
+    config:
+      - http01
+        ingressClass: nginx
+      domains:
+        - k8s.westman.tech
+        - www.k8s.westman.tech
